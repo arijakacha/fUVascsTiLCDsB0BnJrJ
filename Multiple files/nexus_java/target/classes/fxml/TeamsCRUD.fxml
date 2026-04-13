@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.nexusplay.controller.crud.TeamsCRUDController"
+            style="-fx-background-color: #0B0D14;">
+
+    <top>
+        <VBox style="-fx-padding: 20; -fx-background-color: #0D0F18; -fx-border-color: rgba(255,255,255,0.06); -fx-border-width: 0 0 1 0;">
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="Teams Management" 
+                       style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                
+                <Button fx:id="btnBack" text="Back to Dashboard" 
+                        style="-fx-background-color: #6B7280; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-background-radius: 6;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox fx:id="contentArea" spacing="20" style="-fx-padding: 20;">
+            <!-- CRUD Buttons View -->
+            <HBox fx:id="buttonsView" spacing="15" alignment="CENTER">
+                <Button fx:id="btnAdd" text="+ Add Team" 
+                        style="-fx-background-color: #10B981; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 16 32; -fx-background-radius: 8; -fx-font-size: 14px;"/>
+                <Button fx:id="btnView" text="View All Teams" 
+                        style="-fx-background-color: #3B82F6; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 16 32; -fx-background-radius: 8; -fx-font-size: 14px;"/>
+                <Button fx:id="btnSearch" text="Search Teams" 
+                        style="-fx-background-color: #F59E0B; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 16 32; -fx-background-radius: 8; -fx-font-size: 14px;"/>
+            </HBox>
+            
+            <!-- Content View (hidden by default) -->
+            <VBox fx:id="listView" spacing="20" visible="false">
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <TextField fx:id="searchField" prefWidth="300" promptText="Search teams..." 
+                              style="-fx-background-color: #1E2139; -fx-text-fill: white; -fx-prompt-text-fill: #8B92B9; -fx-background-radius: 8; -fx-border-color: #2D3142; -fx-border-radius: 8; -fx-padding: 12 16; -fx-font-size: 14px;"/>
+                    
+                    <Region HBox.hgrow="ALWAYS"/>
+                    
+                    <Button fx:id="btnRefresh" text="Refresh" 
+                            style="-fx-background-color: #6B7280; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-background-radius: 6;"/>
+                    
+                    <Label text="Showing: " style="-fx-text-fill: #8B92B9; -fx-font-size: 12px;"/>
+                    <Label fx:id="countLabel" text="0 teams" style="-fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                </HBox>
+                
+                <FlowPane fx:id="cardsFlowPane" hgap="15" vgap="15"/>
+            </VBox>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #0D0F18; -fx-border-color: rgba(255,255,255,0.06); -fx-border-width: 1 0 0 0;">
+            <Pagination fx:id="pagination" pageCount="1" currentPageIndex="0"
+                       style="-fx-background-color: transparent; -fx-border-color: transparent;" visible="false"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Tip: Click a button above to perform actions" 
+                   style="-fx-text-fill: #8B92B9; -fx-font-size: 11px;"/>
+        </HBox>
+    </bottom>
+</BorderPane>

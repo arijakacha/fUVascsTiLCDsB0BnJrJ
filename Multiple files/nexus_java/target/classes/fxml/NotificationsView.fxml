@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.nexusplay.controller.NotificationsViewController"
+            stylesheets="@../css/nexus-theme.css" styleClass="app-root dashboard-root">
+
+    <top>
+        <VBox styleClass="dashboard-header">
+            <HBox styleClass="dashboard-header-row">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Text text="NEXUS" styleClass="logo-nexus"/>
+                    <Text text="PLAY" styleClass="logo-play"/>
+                    <Text text="NOTIFICATIONS" styleClass="section-heading"/>
+                </HBox>
+                <HBox HBox.hgrow="ALWAYS" alignment="CENTER_RIGHT" spacing="10">
+                    <Button text="Mark All as Read" onAction="#handleMarkAllAsRead" styleClass="button btn-secondary"/>
+                    <Button text="Back to Dashboard" onAction="#handleBackToDashboard" styleClass="button btn-secondary"/>
+                </HBox>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="20" styleClass="dashboard-content">
+            <Text text="SYSTEM NOTIFICATIONS" styleClass="section-heading"/>
+            <TableView fx:id="notificationsTable" VBox.vgrow="ALWAYS" styleClass="table-dark">
+                <columns>
+                    <TableColumn fx:id="idColumn" text="ID" prefWidth="60"/>
+                    <TableColumn fx:id="typeColumn" text="Type" prefWidth="150"/>
+                    <TableColumn fx:id="messageColumn" text="Message" prefWidth="400"/>
+                    <TableColumn fx:id="createdAtColumn" text="Date" prefWidth="180"/>
+                    <TableColumn fx:id="isReadColumn" text="Status" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>

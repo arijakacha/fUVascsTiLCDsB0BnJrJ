@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+    fx:id="contentRoot"
+    fx:controller="com.nexusplay.controller.ContentViewController"
+    maxWidth="Infinity" maxHeight="Infinity"
+    style="-fx-background-color: #0B0D14;">
+
+    <!-- TOP TITLE BAR -->
+    <top>
+        <VBox>
+            <!-- Window Control Bar -->
+            <HBox fx:id="titleBar" styleClass="title-bar" alignment="CENTER_RIGHT"
+                  onMousePressed="#handleTitleBarPressed"
+                  onMouseDragged="#handleTitleBarDragged"
+                  style="-fx-background-color: #0B0D14; -fx-padding: 8 12;">
+                <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS" spacing="4">
+                    <Label text="NEXUS"
+                           style="-fx-text-fill: white; -fx-font-weight: bold;
+                                  -fx-font-size: 13px;"/>
+                    <Label text="PLAY"
+                           style="-fx-text-fill: #FF4D2E; -fx-font-weight: bold;
+                                  -fx-font-size: 13px;"/>
+                </HBox>
+                <HBox spacing="8">
+                    <Button fx:id="btnFullscreen" styleClass="win-btn win-btn-fullscreen"
+                            text="⛶" onAction="#toggleFullscreen"/>
+                    <Button fx:id="btnMinimize" styleClass="win-btn win-btn-minimize"
+                            text="−" onAction="#minimizeWindow"/>
+                    <Button fx:id="btnClose" styleClass="win-btn win-btn-close"
+                            text="✕" onAction="#closeWindow"/>
+                </HBox>
+            </HBox>
+
+            <!-- Navigation Bar -->
+            <HBox style="-fx-background-color: #0D0F18; -fx-padding: 0 24; -fx-spacing: 4;"
+                  alignment="CENTER_LEFT">
+                <!-- Logo -->
+                <HBox style="-fx-padding: 16 24 16 0;" spacing="4">
+                    <Label text="NEXUS"
+                           style="-fx-text-fill: white; -fx-font-weight: bold;
+                                  -fx-font-size: 20px;"/>
+                    <Label text="PLAY"
+                           style="-fx-text-fill: #FF4D2E; -fx-font-weight: bold;
+                                  -fx-font-size: 20px;"/>
+                </HBox>
+
+                <!-- Navigation Buttons -->
+                <HBox HBox.hgrow="ALWAYS" spacing="2" alignment="CENTER">
+                    <Button fx:id="navHome"
+                            text="Home"
+                            styleClass="nav-item"
+                            onAction="#goToHome"/>
+                    <Button fx:id="navGames"
+                            text="Games" styleClass="nav-item"
+                            onAction="#showGames"/>
+                    <Button fx:id="navShop"
+                            text="Shop" styleClass="nav-item"
+                            onAction="#showShop"/>
+                    <Button fx:id="navForum"
+                            text="Forum" styleClass="nav-item"
+                            onAction="#showForum"/>
+                    <Button fx:id="navContent"
+                            text="Content" styleClass="nav-item-active"
+                            onAction="#showContent"/>
+                    <Button fx:id="navStreams"
+                            text="Streams" styleClass="nav-item"
+                            onAction="#showStreams"/>
+                    <Button fx:id="navPlayers"
+                            text="Players" styleClass="nav-item"
+                            onAction="#showPlayers"/>
+                    <Button fx:id="navCoaches"
+                            text="Coaches" styleClass="nav-item"
+                            onAction="#showCoaches"/>
+                    <Button fx:id="navOrganizations"
+                            text="Organizations" styleClass="nav-item"
+                            onAction="#showOrganizations"/>
+                    <Button fx:id="navTeams"
+                            text="Teams" styleClass="nav-item"
+                            onAction="#showTeams"/>
+                </HBox>
+
+                <!-- User Profile -->
+                <HBox style="-fx-padding: 12 0;" spacing="12" alignment="CENTER">
+                    <StackPane minWidth="38" minHeight="38"
+                               maxWidth="38" maxHeight="38"
+                               style="-fx-background-color: #3D2FA0;
+                                      -fx-background-radius: 19;"
+                               alignment="CENTER">
+                        <Label fx:id="avatarLabel" text="U"
+                               style="-fx-text-fill: white; -fx-font-weight: bold;
+                                      -fx-font-size: 15px;"/>
+                    </StackPane>
+                    <VBox spacing="2">
+                        <Label fx:id="userNameLabel" text="User"
+                               style="-fx-text-fill: white; -fx-font-size: 13px;
+                                      -fx-font-weight: bold;"/>
+                        <Label fx:id="userTypeLabel" text="Visitor"
+                               style="-fx-text-fill: rgba(255,255,255,0.40);
+                                      -fx-font-size: 11px;"/>
+                    </VBox>
+                    <Button text="Log Out" onAction="#handleLogout"
+                            style="-fx-background-color: #FF4D2E; -fx-text-fill: white;
+                                   -fx-font-weight: bold; -fx-padding: 8 16;
+                                   -fx-background-radius: 6; -fx-font-size: 12px;"/>
+                </HBox>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <!-- MAIN CONTENT -->
+        <ScrollPane fx:id="mainScrollPane"
+                    fitToWidth="true" hbarPolicy="NEVER"
+                    vbarPolicy="AS_NEEDED"
+                    minHeight="0" maxHeight="Infinity"
+                    styleClass="main-scroll"
+                    style="-fx-background-color: transparent;
+                           -fx-background: transparent;
+                           -fx-border-color: transparent;">
+            <VBox fx:id="mainContent" spacing="20"
+                  maxWidth="Infinity"
+                  style="-fx-background-color: #0B0D14;
+                         -fx-padding: 40 40;">
+
+                <!-- Page Title -->
+                <HBox spacing="14">
+                    <VBox HBox.hgrow="ALWAYS" spacing="8">
+                        <Label text="Content" wrapText="true" maxWidth="Infinity"
+                               style="-fx-text-fill: white; -fx-font-size: 32px;
+                                      -fx-font-weight: bold;"/>
+                        <Label text="Browse gaming guides and tutorials" wrapText="true" maxWidth="Infinity"
+                               style="-fx-text-fill: rgba(255,255,255,0.50);
+                                      -fx-font-size: 16px;"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Content Grid -->
+                <FlowPane fx:id="contentFlowPane" hgap="20" vgap="20" maxWidth="Infinity">
+                    <!-- Content will be loaded dynamically -->
+                </FlowPane>
+
+                <!-- Pagination Controls -->
+                <HBox spacing="10" alignment="CENTER" style="-fx-padding: 20 0;">
+                    <Button fx:id="previousPageButton" text="Previous" onAction="#handlePreviousPage"
+                            style="-fx-background-color: #3D2FA0; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-background-radius: 6; -fx-font-size: 13px;"/>
+                    <Label fx:id="pageLabel" text="Page 1 of 1" style="-fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+                    <Button fx:id="nextPageButton" text="Next" onAction="#handleNextPage"
+                            style="-fx-background-color: #3D2FA0; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-background-radius: 6; -fx-font-size: 13px;"/>
+                </HBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

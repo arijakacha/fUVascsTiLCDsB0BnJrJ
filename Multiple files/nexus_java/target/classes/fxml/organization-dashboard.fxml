@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.nexusplay.controller.OrganizationDashboardController"
+            stylesheets="@../css/nexus-theme.css" styleClass="app-root dashboard-root">
+
+    <top>
+        <VBox styleClass="dashboard-header">
+            <HBox styleClass="dashboard-header-row">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Text text="" style="-fx-font-size: 28px;"/>
+                    <VBox spacing="2">
+                        <HBox spacing="0">
+                            <Text text="NEXUS" styleClass="logo-nexus"/>
+                            <Text text="PLAY" styleClass="logo-play"/>
+                        </HBox>
+                        <Text text="Organization Dashboard" styleClass="dashboard-subtitle"/>
+                    </VBox>
+                </HBox>
+                <HBox HBox.hgrow="ALWAYS" alignment="CENTER">
+                    <Label fx:id="welcomeLabel" text="Welcome, Organization!" styleClass="welcome-label"/>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" spacing="10">
+                    <Button text="Profile" onAction="#handleViewProfile" styleClass="button btn-secondary"/>
+                    <Button text="Logout" onAction="#handleLogout" styleClass="button btn-primary"/>
+                </HBox>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane fx:id="orgTabPane" tabClosingPolicy="UNAVAILABLE" styleClass="dashboard-tabpane">
+            <Tab text="Overview">
+                <ScrollPane fitToWidth="true" styleClass="scroll-dark">
+                    <VBox spacing="20" styleClass="dashboard-content">
+                        <HBox styleClass="stat-card" alignment="CENTER_LEFT" spacing="16">
+                            <Text text="" style="-fx-font-size: 48px;"/>
+                            <VBox spacing="6">
+                                <Text text="ORGANIZATION OVERVIEW" styleClass="stat-card-title"/>
+                                <Label fx:id="orgStatsLabel" text="Loading stats..." wrapText="true"
+                                       style="-fx-text-fill: rgba(255,255,255,0.65);"/>
+                            </VBox>
+                        </HBox>
+                        <GridPane hgap="16" vgap="16">
+                            <VBox styleClass="stat-card" GridPane.rowIndex="0" GridPane.columnIndex="0"
+                                  alignment="CENTER" spacing="8">
+                                <Text text="" style="-fx-font-size: 36px;"/>
+                                <Text text="Create Team" styleClass="text-on-dark"/>
+                                <Button text="Create" onAction="#handleCreateTeam" styleClass="button btn-secondary"/>
+                            </VBox>
+                            <VBox styleClass="stat-card" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                                  alignment="CENTER" spacing="8">
+                                <Text text="" style="-fx-font-size: 36px;"/>
+                                <Text text="Tournaments" styleClass="text-on-dark"/>
+                                <Button text="Manage" onAction="#handleManageTournaments" styleClass="button btn-secondary"/>
+                            </VBox>
+                            <VBox styleClass="stat-card" GridPane.rowIndex="0" GridPane.columnIndex="2"
+                                  alignment="CENTER" spacing="8">
+                                <Text text="" style="-fx-font-size: 36px;"/>
+                                <Text text="Analytics" styleClass="text-on-dark"/>
+                                <Button text="View" styleClass="button btn-secondary"/>
+                            </VBox>
+                        </GridPane>
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+            <Tab text="Teams">
+                <VBox spacing="12" styleClass="dashboard-content">
+                    <HBox spacing="12" alignment="CENTER_LEFT">
+                        <Text text="Organization Teams" styleClass="section-heading"/>
+                        <Button text="Create New Team" onAction="#handleCreateTeam" styleClass="button btn-primary"/>
+                    </HBox>
+                    <TableView fx:id="organizationTeamsTable" VBox.vgrow="ALWAYS" styleClass="table-dark"/>
+                </VBox>
+            </Tab>
+            <Tab text="Players">
+                <VBox spacing="12" styleClass="dashboard-content">
+                    <Text text="Organization Players" styleClass="section-heading"/>
+                    <TableView fx:id="organizationPlayersTable" VBox.vgrow="ALWAYS" styleClass="table-dark"/>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+
+    <bottom>
+        <HBox styleClass="dashboard-footer" alignment="CENTER_LEFT" spacing="16">
+            <Text text="Organization Dashboard" styleClass="dashboard-footer-text"/>
+            <HBox HBox.hgrow="ALWAYS" alignment="CENTER_RIGHT">
+                <Text text="NexusPlay v2.0" styleClass="dashboard-footer-text"/>
+            </HBox>
+        </HBox>
+    </bottom>
+
+</BorderPane>

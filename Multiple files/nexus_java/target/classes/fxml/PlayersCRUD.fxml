@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.nexusplay.controller.crud.PlayersCRUDController"
+            style="-fx-background-color: #1a1a2e;">
+
+    <top>
+        <VBox style="-fx-padding: 20; -fx-background-color: #0D0F18; -fx-border-color: rgba(255,255,255,0.06); -fx-border-width: 0 0 1 0;">
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="Players Management" 
+                       style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                
+                <Button fx:id="btnBack" text="Back to Dashboard" 
+                        style="-fx-background-color: #6B7280; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-background-radius: 6;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <HBox fx:id="contentArea" spacing="20" style="-fx-padding: 20;">
+            <!-- Left Side: CRUD Buttons -->
+            <VBox spacing="15" alignment="TOP_CENTER" prefWidth="200" style="-fx-padding: 20;">
+                <Label text="Actions" 
+                       style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                
+                <Button fx:id="btnAdd" text="+ Add Player" 
+                        style="-fx-background-color: #FF4D2E; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 14 28; -fx-background-radius: 10; -fx-font-size: 14px; -fx-cursor: hand; -fx-min-width: 160px;"/>
+                <Button fx:id="btnEdit" text="Edit Player" 
+                        style="-fx-background-color: #0B0D14; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 14 28; -fx-background-radius: 10; -fx-font-size: 14px; -fx-border-color: #FF4D2E; -fx-border-width: 2; -fx-border-radius: 10; -fx-cursor: hand; -fx-min-width: 160px;"/>
+                <Button fx:id="btnDelete" text="Delete Player" 
+                        style="-fx-background-color: #0B0D14; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 14 28; -fx-background-radius: 10; -fx-font-size: 14px; -fx-border-color: #FF4D2E; -fx-border-width: 2; -fx-border-radius: 10; -fx-cursor: hand; -fx-min-width: 160px;"/>
+            </VBox>
+            
+            <!-- Right Side: Player Cards -->
+            <VBox spacing="20" HBox.hgrow="ALWAYS">
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <Label text="Players List" 
+                           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    
+                    <TextField fx:id="searchField" prefWidth="250" promptText="Search players..." 
+                              style="-fx-background-color: #1E2139; -fx-text-fill: white; -fx-prompt-text-fill: #8B92B9; -fx-background-radius: 8; -fx-border-color: #2D3142; -fx-border-radius: 8; -fx-padding: 10 14; -fx-font-size: 13px;"/>
+                    
+                    <Button fx:id="btnRefresh" text="Refresh" 
+                            style="-fx-background-color: #6B7280; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-background-radius: 6;"/>
+                    
+                    <Label text="Showing: " style="-fx-text-fill: #8B92B9; -fx-font-size: 12px;"/>
+                    <Label fx:id="countLabel" text="0 players" style="-fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                </HBox>
+                
+                <!-- Player Cards View with Pagination -->
+                <Pagination fx:id="pagination" pageCount="1" currentPageIndex="0"
+                           style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </VBox>
+        </HBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #0D0F18; -fx-border-color: rgba(255,255,255,0.06); -fx-border-width: 1 0 0 0;">
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Tip: Click a button above to perform actions" 
+                   style="-fx-text-fill: #8B92B9; -fx-font-size: 11px;"/>
+        </HBox>
+    </bottom>
+</BorderPane>

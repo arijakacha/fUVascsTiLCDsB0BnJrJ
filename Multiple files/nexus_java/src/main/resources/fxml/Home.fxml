@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+    fx:id="homeRoot"
+    fx:controller="com.nexusplay.controller.HomeController"
+    maxWidth="Infinity" maxHeight="Infinity"
+    styleClass="home-root"
+    style="-fx-background-color: #0B0D14;">
+
+    <!-- TOP TITLE BAR -->
+    <top>
+        <VBox>
+            <!-- Window Control Bar -->
+            <HBox fx:id="titleBar" styleClass="title-bar" alignment="CENTER_RIGHT"
+                  onMousePressed="#handleTitleBarPressed"
+                  onMouseDragged="#handleTitleBarDragged"
+                  style="-fx-background-color: #0B0D14; -fx-padding: 8 12;">
+                <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS" spacing="4">
+                    <Label text="NEXUS"
+                           style="-fx-text-fill: white; -fx-font-weight: bold;
+                                  -fx-font-size: 13px;"/>
+                    <Label text="PLAY"
+                           style="-fx-text-fill: #FF4D2E; -fx-font-weight: bold;
+                                  -fx-font-size: 13px;"/>
+                </HBox>
+                <HBox spacing="8">
+                    <Button fx:id="btnFullscreen" styleClass="win-btn win-btn-fullscreen"
+                            text="⛶" onAction="#toggleFullscreen"/>
+                    <Button fx:id="btnMinimize" styleClass="win-btn win-btn-minimize"
+                            text="−" onAction="#minimizeWindow"/>
+                    <Button fx:id="btnClose" styleClass="win-btn win-btn-close"
+                            text="✕" onAction="#closeWindow"/>
+                </HBox>
+            </HBox>
+
+            <!-- Navigation Bar (same 10 items as Games/Streams/Shop/… for consistency) -->
+            <HBox style="-fx-background-color: #0D0F18; -fx-padding: 0 24; -fx-spacing: 4;"
+                  alignment="CENTER_LEFT">
+                <!-- Logo -->
+                <HBox style="-fx-padding: 16 24 16 0;" spacing="4">
+                    <Label text="NEXUS"
+                           style="-fx-text-fill: white; -fx-font-weight: bold;
+                                  -fx-font-size: 20px;"/>
+                    <Label text="PLAY"
+                           style="-fx-text-fill: #FF4D2E; -fx-font-weight: bold;
+                                  -fx-font-size: 20px;"/>
+                </HBox>
+
+                <!-- Navigation Buttons -->
+                <HBox HBox.hgrow="ALWAYS" spacing="2" alignment="CENTER">
+                    <Button fx:id="navHome"
+                            text="Home"
+                            styleClass="nav-item-active"
+                            onAction="#showHome"/>
+                    <Button fx:id="navGames"
+                            text="Games" styleClass="nav-item"
+                            onAction="#showGames"/>
+                    <Button fx:id="navShop"
+                            text="Shop" styleClass="nav-item"
+                            onAction="#showShop"/>
+                    <Button fx:id="navForum"
+                            text="Forum" styleClass="nav-item"
+                            onAction="#showForum"/>
+                    <Button fx:id="navContent"
+                            text="Content" styleClass="nav-item"
+                            onAction="#showContent"/>
+                    <Button fx:id="navStreams"
+                            text="Streams" styleClass="nav-item"
+                            onAction="#showStreams"/>
+                    <Button fx:id="navPlayers"
+                            text="Players" styleClass="nav-item"
+                            onAction="#showPlayers"/>
+                    <Button fx:id="navCoaches"
+                            text="Coaches" styleClass="nav-item"
+                            onAction="#showCoaches"/>
+                    <Button fx:id="navOrganizations"
+                            text="Organizations" styleClass="nav-item"
+                            onAction="#showOrganizations"/>
+                    <Button fx:id="navTeams"
+                            text="Teams" styleClass="nav-item"
+                            onAction="#showTeams"/>
+                </HBox>
+
+                <!-- User Profile -->
+                <HBox style="-fx-padding: 12 0;" spacing="12" alignment="CENTER">
+                    <StackPane minWidth="38" minHeight="38"
+                               maxWidth="38" maxHeight="38"
+                               style="-fx-background-color: #3D2FA0;
+                                      -fx-background-radius: 19;"
+                               alignment="CENTER">
+                        <Label fx:id="avatarLabel" text="U"
+                               style="-fx-text-fill: white; -fx-font-weight: bold;
+                                      -fx-font-size: 15px;"/>
+                    </StackPane>
+                    <VBox spacing="2">
+                        <Label fx:id="userNameLabel" text="User"
+                               style="-fx-text-fill: white; -fx-font-size: 13px;
+                                      -fx-font-weight: bold;"/>
+                        <Label fx:id="userTypeLabel" text="Visitor"
+                               style="-fx-text-fill: rgba(255,255,255,0.40);
+                                      -fx-font-size: 11px;"/>
+                    </VBox>
+                    <Button text="Log Out" onAction="#handleLogout"
+                            style="-fx-background-color: #FF4D2E; -fx-text-fill: white;
+                                   -fx-font-weight: bold; -fx-padding: 8 16;
+                                   -fx-background-radius: 6; -fx-font-size: 12px;"/>
+                </HBox>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- MAIN CONTENT -->
+    <center>
+        <ScrollPane fx:id="mainScrollPane"
+                    fitToWidth="true" hbarPolicy="NEVER"
+                    vbarPolicy="AS_NEEDED"
+                    minHeight="0" maxHeight="Infinity"
+                    styleClass="main-scroll"
+                    style="-fx-background-color: transparent;
+                           -fx-background: transparent;
+                           -fx-border-color: transparent;">
+            <VBox fx:id="mainContent" spacing="0"
+                  maxWidth="Infinity"
+                  style="-fx-background-color: #0B0D14;">
+
+                <!-- Hero: Symfony maroon→navy gradient panel + rounded card -->
+                <StackPane styleClass="home-hero-outer" maxWidth="Infinity">
+                    <StackPane style="-fx-padding: 40 40 28 40;" maxWidth="Infinity">
+                        <StackPane styleClass="home-hero-card" maxWidth="Infinity">
+                            <HBox spacing="28" alignment="CENTER_LEFT" maxWidth="Infinity">
+                                <VBox spacing="12" HBox.hgrow="ALWAYS" minWidth="200" maxWidth="Infinity">
+                                    <Label text="ESPORT ALL-IN-ONE PLATFORM"
+                                           styleClass="home-hero-kicker" wrapText="true" maxWidth="Infinity"/>
+
+                                    <TextFlow styleClass="home-hero-headline-flow" maxWidth="Infinity">
+                                        <Text text="NEXUS" styleClass="home-hero-brand-nexus"/>
+                                        <Text text="PLAY" styleClass="home-hero-brand-play"/>
+                                        <Text text=" centralizes players, teams &amp; organizations."
+                                              styleClass="home-hero-headline-rest"/>
+                                    </TextFlow>
+
+                                    <Label fx:id="welcomeLabel" text=""
+                                           styleClass="home-hero-welcome"
+                                           visible="false" managed="false" wrapText="true" maxWidth="Infinity"/>
+
+                                    <Label text="Track your players, manage teams, share coaching content, grow your community and monetize with virtual currencies — all in one competitive hub."
+                                           styleClass="home-hero-body" wrapText="true" maxWidth="Infinity"/>
+
+                                    <HBox spacing="16" alignment="CENTER_LEFT" style="-fx-padding: 8 0 0 0;">
+                                        <Button text="Try it for free" onAction="#showGames"
+                                                styleClass="home-hero-cta"/>
+                                        <VBox spacing="2">
+                                            <Label text="+200,000" styleClass="home-hero-stat-num"/>
+                                            <Label text="matches analyzed in 5 days" styleClass="home-hero-stat-sub"/>
+                                        </VBox>
+                                    </HBox>
+                                </VBox>
+
+                                <VBox spacing="10" minWidth="240" prefWidth="380" maxWidth="520" HBox.hgrow="SOMETIMES">
+                                    <HBox alignment="CENTER_LEFT" spacing="8" maxWidth="Infinity">
+                                        <Label text="Live tactical map" styleClass="home-hero-map-label" wrapText="true"/>
+                                        <Region HBox.hgrow="ALWAYS" minWidth="0"/>
+                                        <Label text="●" styleClass="home-hero-map-dot"/>
+                                        <Label text="Ranked" styleClass="home-hero-map-ranked"/>
+                                    </HBox>
+
+                                    <StackPane styleClass="home-hero-map-panel" prefHeight="220" maxHeight="Infinity" maxWidth="Infinity">
+                                        <Label text="· · ·&#10;&#10;  ·&#10;&#10;· · ·"
+                                               style="-fx-text-fill: rgba(255,255,255,0.14); -fx-font-size: 22px; -fx-font-family: monospace;" />
+                                        <HBox StackPane.alignment="BOTTOM_LEFT" style="-fx-padding: 0 0 12 14;" spacing="16">
+                                            <Label text="Mirage • 25:18"
+                                                   style="-fx-text-fill: rgba(255,255,255,0.45); -fx-font-size: 11px;"/>
+                                            <Region HBox.hgrow="ALWAYS" />
+                                            <Label text="Win rate boost: +14%"
+                                                   style="-fx-text-fill: rgba(255,77,46,0.90); -fx-font-size: 11px; -fx-font-weight: bold;"/>
+                                        </HBox>
+                                    </StackPane>
+                                </VBox>
+                            </HBox>
+                        </StackPane>
+                    </StackPane>
+                </StackPane>
+
+                <!-- Trust bar: rounded strip (centered, max width like hero) -->
+                <HBox alignment="CENTER" maxWidth="Infinity" style="-fx-padding: 0 40 26 40;">
+                    <HBox styleClass="home-trust-bar" alignment="CENTER_LEFT" maxWidth="Infinity" HBox.hgrow="ALWAYS">
+                        <Label text="TRUSTED BY COMPETITIVE COMMUNITIES" styleClass="home-trust-left"/>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label text="LoL" styleClass="home-trust-game" />
+                        <Label text="CS" styleClass="home-trust-game" />
+                        <Label text="Dota" styleClass="home-trust-game" />
+                        <Label text="Valorant" styleClass="home-trust-game" />
+                        <Label text="FIFA" styleClass="home-trust-game" />
+                    </HBox>
+                </HBox>
+
+                <!-- Symfony-like compact cells section -->
+                <VBox spacing="4" styleClass="home-cells-section"
+                      style="-fx-padding: 10 40 34 40;">
+                    <Label text="WIN MORE" styleClass="home-cells-kicker"/>
+                    <Label text="Use our statistics &amp; analytics to make the right calls."
+                           styleClass="home-cells-title" wrapText="true" maxWidth="Infinity"/>
+                    <Label text="Get access to your ecosystem from a single dashboard."
+                           styleClass="home-cells-subtitle" wrapText="true" maxWidth="Infinity"/>
+
+                    <FlowPane fx:id="homeCellsFlowPane" hgap="14" vgap="14" prefWrapLength="1200"
+                              maxWidth="Infinity"
+                              style="-fx-padding: 12 0 0 0;">
+                        <Button onAction="#showPlayers" styleClass="home-cell-button">
+                            <graphic>
+                                <VBox spacing="6" alignment="TOP_LEFT">
+                                    <Label text="PLAYERS" styleClass="home-cell-kicker"/>
+                                    <Label text="Player profiles" styleClass="home-cell-title"/>
+                                    <Label text="Track gamer tags, match history and performance stats."
+                                           wrapText="true" styleClass="home-cell-sub"/>
+                                </VBox>
+                            </graphic>
+                        </Button>
+
+                        <Button onAction="#showTeams" styleClass="home-cell-button">
+                            <graphic>
+                                <VBox spacing="6" alignment="TOP_LEFT">
+                                    <Label text="TEAMS" styleClass="home-cell-kicker"/>
+                                    <Label text="Team management" styleClass="home-cell-title"/>
+                                    <Label text="Manage rosters, organizations and lineups."
+                                           wrapText="true" styleClass="home-cell-sub"/>
+                                </VBox>
+                            </graphic>
+                        </Button>
+
+                        <Button onAction="#showContent" styleClass="home-cell-button">
+                            <graphic>
+                                <VBox spacing="6" alignment="TOP_LEFT">
+                                    <Label text="CONTENT" styleClass="home-cell-kicker"/>
+                                    <Label text="Coaching &amp; guides" styleClass="home-cell-title"/>
+                                    <Label text="Publish coaching content and community news."
+                                           wrapText="true" styleClass="home-cell-sub"/>
+                                </VBox>
+                            </graphic>
+                        </Button>
+
+                        <Button onAction="#showForum" styleClass="home-cell-button">
+                            <graphic>
+                                <VBox spacing="6" alignment="TOP_LEFT">
+                                    <Label text="COMMUNITY" styleClass="home-cell-kicker"/>
+                                    <Label text="Forum &amp; comments" styleClass="home-cell-title"/>
+                                    <Label text="Keep your community active around every match."
+                                           wrapText="true" styleClass="home-cell-sub"/>
+                                </VBox>
+                            </graphic>
+                        </Button>
+
+                        <Button onAction="#showShop" styleClass="home-cell-button">
+                            <graphic>
+                                <VBox spacing="6" alignment="TOP_LEFT">
+                                    <Label text="SHOP" styleClass="home-cell-kicker"/>
+                                    <Label text="Virtual currencies" styleClass="home-cell-title"/>
+                                    <Label text="Sell products, track orders and in-game credits."
+                                           wrapText="true" styleClass="home-cell-sub"/>
+                                </VBox>
+                            </graphic>
+                        </Button>
+                    </FlowPane>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox styleClass="home-footer-shell"
+              style="-fx-padding: 14 32; -fx-background-color: #0D0F18; -fx-border-color: rgba(255,255,255,0.06) transparent transparent transparent; -fx-border-width: 1 0 0 0;">
+            <Label text="© 2026 NexusPlay. All rights reserved."
+                   styleClass="home-footer-text"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Esport analytics • Coaching • Community • Virtual shop"
+                   styleClass="home-footer-text"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

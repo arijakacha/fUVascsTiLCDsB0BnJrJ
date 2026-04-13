@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+    fx:id="adminRoot"
+    fx:controller="com.nexusplay.controller.AdminDashboardController"
+    maxWidth="Infinity" maxHeight="Infinity"
+    style="-fx-background-color: #0B0D14;">
+
+    <!-- TOP TITLE BAR -->
+    <top>
+        <HBox fx:id="titleBar" styleClass="title-bar" alignment="CENTER_RIGHT"
+              onMousePressed="#handleTitleBarPressed"
+              onMouseDragged="#handleTitleBarDragged">
+            <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS"
+                  style="-fx-padding: 0 0 0 16;" spacing="4">
+                <Label text="NEXUS"
+                       style="-fx-text-fill: white; -fx-font-weight: bold;
+                              -fx-font-size: 13px;"/>
+                <Label text="PLAY"
+                       style="-fx-text-fill: #FF4D2E; -fx-font-weight: bold;
+                              -fx-font-size: 13px;"/>
+            </HBox>
+            <HBox spacing="8" style="-fx-padding: 0 12 0 0;">
+                <Button fx:id="btnFullscreen" styleClass="win-btn win-btn-fullscreen"
+                        text="⛶" onAction="#toggleFullscreen"/>
+                <Button fx:id="btnMinimize" styleClass="win-btn win-btn-minimize"
+                        text="−" onAction="#minimizeWindow"/>
+                <Button fx:id="btnClose" styleClass="win-btn win-btn-close"
+                        text="✕" onAction="#closeWindow"/>
+            </HBox>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox maxWidth="Infinity" maxHeight="Infinity">
+
+            <!-- SIDEBAR -->
+            <VBox prefWidth="210" minWidth="210" maxWidth="210"
+                  maxHeight="Infinity"
+                  style="-fx-background-color: #0D0F18;
+                         -fx-border-color: rgba(255,255,255,0.06);
+                         -fx-border-width: 0 1 0 0;">
+
+                <!-- Logo -->
+                <HBox style="-fx-padding: 20 20 16 20;"
+                      alignment="CENTER_LEFT" spacing="4">
+                    <Label text="NEXUS"
+                           style="-fx-text-fill: white; -fx-font-weight: bold;
+                                  -fx-font-size: 18px;"/>
+                    <Label text="PLAY"
+                           style="-fx-text-fill: #FF4D2E; -fx-font-weight: bold;
+                                  -fx-font-size: 18px;"/>
+                </HBox>
+
+                <!-- User profile -->
+                <HBox style="-fx-padding: 10 16 12 16;
+                             -fx-background-color: rgba(255,255,255,0.04);"
+                      alignment="CENTER_LEFT" spacing="10">
+                    <StackPane minWidth="38" minHeight="38"
+                               maxWidth="38" maxHeight="38"
+                               style="-fx-background-color: #3D2FA0;
+                                      -fx-background-radius: 19;"
+                               alignment="CENTER">
+                        <Label fx:id="avatarLabel" text="H"
+                               style="-fx-text-fill: white; -fx-font-weight: bold;
+                                      -fx-font-size: 15px;"/>
+                    </StackPane>
+                    <VBox spacing="2" HBox.hgrow="ALWAYS">
+                        <Label fx:id="adminNameLabel" text="admin" wrapText="true" maxWidth="Infinity"
+                               style="-fx-text-fill: white; -fx-font-size: 13px;
+                                      -fx-font-weight: bold;"/>
+                        <Label text="Back office"
+                               style="-fx-text-fill: rgba(255,255,255,0.40);
+                                      -fx-font-size: 11px;"/>
+                    </VBox>
+                    <Label fx:id="notificationButton" text="🔔"
+                           style="-fx-font-size: 14px; -fx-cursor: hand;
+                                  -fx-text-fill: rgba(255,255,255,0.45);"
+                           onMouseClicked="#handleNotifications"/>
+                    <Label fx:id="notificationBadge" text="0"
+                           style="-fx-background-color: #FF4D2E; -fx-background-radius: 10;
+                                  -fx-text-fill: white; -fx-padding: 2 6; -fx-font-size: 10px;
+                                  -fx-font-weight: bold; -fx-translate-x: -8; -fx-translate-y: -8;"/>
+                </HBox>
+
+                <Rectangle height="1" width="210"
+                           style="-fx-fill: rgba(255,255,255,0.07);"/>
+
+                <!-- Nav -->
+                <ScrollPane fitToWidth="true" hbarPolicy="NEVER"
+                            vbarPolicy="NEVER" VBox.vgrow="ALWAYS"
+                            styleClass="sidebar-scroll"
+                            style="-fx-background-color: transparent;
+                                   -fx-background: transparent;
+                                   -fx-border-color: transparent;">
+                    <VBox style="-fx-background-color: transparent;
+                                 -fx-padding: 6 0; -fx-spacing: 1;">
+                        <Button fx:id="navDashboard"
+                                text="Dashboard"
+                                styleClass="nav-item-active"
+                                maxWidth="Infinity"
+                                onAction="#showDashboard"/>
+                        <Button text="Users" styleClass="nav-item"
+                                maxWidth="Infinity" onAction="#showUsers"/>
+                        <Button text="Players" styleClass="nav-item"
+                                maxWidth="Infinity" onAction="#showPlayers"/>
+                        <Button text="Coaches" styleClass="nav-item"
+                                maxWidth="Infinity" onAction="#showCoaches"/>
+                        <Button text="Organizations" styleClass="nav-item"
+                                maxWidth="Infinity" onAction="#showOrganizations"/>
+                        <Button text="Games" styleClass="nav-item"
+                                maxWidth="Infinity" onAction="#showGames"/>
+                        <Button text="Teams" styleClass="nav-item"
+                                maxWidth="Infinity" onAction="#showTeams"/>
+                        <Button text="Shop" styleClass="nav-item"
+                                maxWidth="Infinity" onAction="#showShop"/>
+                        <Button text="Orders" styleClass="nav-item"
+                                maxWidth="Infinity" onAction="#showOrders"/>
+                        <Button text="Content" styleClass="nav-item"
+                                maxWidth="Infinity" onAction="#showContent"/>
+                        <Button text="Forum" styleClass="nav-item"
+                                maxWidth="Infinity" onAction="#showForum"/>
+                        <Button text="Streams" styleClass="nav-item"
+                                maxWidth="Infinity" onAction="#showStreams"/>
+                    </VBox>
+                </ScrollPane>
+
+                <Rectangle height="1" width="210"
+                           style="-fx-fill: rgba(255,255,255,0.07);"/>
+
+                <Button text="Log Out" maxWidth="Infinity"
+                        prefHeight="50" onAction="#handleLogout"
+                        style="-fx-background-color: transparent;
+                               -fx-background-insets: 0;
+                               -fx-background-radius: 0;
+                               -fx-border-color: transparent;
+                               -fx-text-fill: rgba(255,77,46,0.80);
+                               -fx-font-size: 13px; -fx-font-weight: bold;
+                               -fx-alignment: CENTER_LEFT;
+                               -fx-padding: 0 0 0 20; -fx-cursor: hand;"/>
+            </VBox>
+
+            <!-- MAIN CONTENT -->
+            <ScrollPane fx:id="mainScrollPane"
+                        HBox.hgrow="ALWAYS"
+                        fitToWidth="true" hbarPolicy="NEVER"
+                        vbarPolicy="AS_NEEDED"
+                        minHeight="0" maxHeight="Infinity"
+                        styleClass="main-scroll"
+                        style="-fx-background-color: transparent;
+                               -fx-background: transparent;
+                               -fx-border-color: transparent;">
+                <VBox fx:id="mainContent" spacing="20"
+                      maxWidth="Infinity"
+                      style="-fx-background-color: #0B0D14;
+                             -fx-padding: 28;">
+
+                    <!-- ── TOP STAT CARDS ── -->
+                    <HBox spacing="14">
+                        <VBox styleClass="dash-stat-card"
+                              HBox.hgrow="ALWAYS" spacing="6">
+                            <Label text="TOTAL USERS"
+                                   styleClass="stat-label-small"/>
+                            <Label fx:id="totalUsersLabel" text="29"
+                                   styleClass="stat-number-white"/>
+                        </VBox>
+                        <VBox styleClass="dash-stat-card"
+                              HBox.hgrow="ALWAYS" spacing="6">
+                            <Label text="ACTIVE PLAYERS"
+                                   styleClass="stat-label-small"/>
+                            <Label fx:id="totalPlayersLabel" text="15"
+                                   styleClass="stat-number-cyan"/>
+                        </VBox>
+                        <VBox styleClass="dash-stat-card"
+                              HBox.hgrow="ALWAYS" spacing="6">
+                            <Label text="REVENUE"
+                                   styleClass="stat-label-small"/>
+                            <Label fx:id="revenueLabel" text="—"
+                                   styleClass="stat-number-cyan"/>
+                        </VBox>
+                        <VBox styleClass="dash-stat-card"
+                              HBox.hgrow="ALWAYS" spacing="6">
+                            <Label text="PENDING ORDERS"
+                                   styleClass="stat-label-small"/>
+                            <Label fx:id="pendingOrdersLabel" text="3"
+                                   styleClass="stat-number-red"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- ── MIDDLE ROW: Donut + Quick Access ── -->
+                    <HBox spacing="14" maxWidth="Infinity">
+
+                        <VBox styleClass="dash-card"
+                              HBox.hgrow="ALWAYS" spacing="14">
+                            <Label text="Entity Distribution"
+                                   styleClass="dash-card-title"/>
+
+                            <StackPane alignment="CENTER"
+                                       maxWidth="Infinity">
+                                <PieChart fx:id="entityChart"
+                                          minWidth="200" minHeight="180"
+                                          maxWidth="Infinity" maxHeight="Infinity"
+                                          prefHeight="240"
+                                          legendVisible="false"
+                                          labelsVisible="false"
+                                          styleClass="donut-chart"/>
+                                <VBox alignment="CENTER" spacing="2"
+                                      style="-fx-padding: 0 0 24 0;">
+                                    <Label fx:id="chartTotalLabel"
+                                           text="53"
+                                           style="-fx-text-fill: white;
+                                                  -fx-font-size: 28px;
+                                                  -fx-font-weight: bold;"/>
+                                    <Label text="Total Items"
+                                           style="-fx-text-fill: rgba(255,255,255,0.45);
+                                                  -fx-font-size: 12px;"/>
+                                </VBox>
+                            </StackPane>
+
+                            <HBox spacing="20" alignment="CENTER">
+                                <HBox spacing="6" alignment="CENTER_LEFT">
+                                    <Circle radius="5"
+                                            style="-fx-fill: #F97316;"/>
+                                    <Label text="Users"
+                                           style="-fx-text-fill: rgba(255,255,255,0.60);
+                                                  -fx-font-size: 12px;"/>
+                                </HBox>
+                                <HBox spacing="6" alignment="CENTER_LEFT">
+                                    <Circle radius="5"
+                                            style="-fx-fill: #22C55E;"/>
+                                    <Label text="Players"
+                                           style="-fx-text-fill: rgba(255,255,255,0.60);
+                                                  -fx-font-size: 12px;"/>
+                                </HBox>
+                                <HBox spacing="6" alignment="CENTER_LEFT">
+                                    <Circle radius="5"
+                                            style="-fx-fill: #3B82F6;"/>
+                                    <Label text="Shop"
+                                           style="-fx-text-fill: rgba(255,255,255,0.60);
+                                                  -fx-font-size: 12px;"/>
+                                </HBox>
+                                <HBox spacing="6" alignment="CENTER_LEFT">
+                                    <Circle radius="5"
+                                            style="-fx-fill: #EF4444;"/>
+                                    <Label text="Content"
+                                           style="-fx-text-fill: rgba(255,255,255,0.60);
+                                                  -fx-font-size: 12px;"/>
+                                </HBox>
+                            </HBox>
+                        </VBox>
+
+                        <VBox styleClass="dash-card"
+                              prefWidth="320" minWidth="280" spacing="4">
+                            <HBox alignment="CENTER_LEFT">
+                                <Label text="Quick Access"
+                                       styleClass="dash-card-title"
+                                       HBox.hgrow="ALWAYS"/>
+                                <Label text="View All →"
+                                       style="-fx-text-fill: #2D9CDB;
+                                              -fx-font-size: 12px;
+                                              -fx-cursor: hand;"/>
+                            </HBox>
+
+                            <HBox styleClass="quick-access-row"
+                                  alignment="CENTER_LEFT" spacing="12">
+                                <StackPane styleClass="qa-icon-box">
+                                    <Label text="👤" style="-fx-font-size:16px;"/>
+                                </StackPane>
+                                <VBox HBox.hgrow="ALWAYS" spacing="2">
+                                    <Label text="User Management"
+                                           styleClass="qa-title"/>
+                                    <Label text="Manage accounts and roles"
+                                           styleClass="qa-sub"/>
+                                </VBox>
+                                <Label text="Active" styleClass="badge-green"/>
+                            </HBox>
+
+                            <HBox styleClass="quick-access-row"
+                                  alignment="CENTER_LEFT" spacing="12">
+                                <StackPane styleClass="qa-icon-box">
+                                    <Label text="" style="-fx-font-size:16px;"/>
+                                </StackPane>
+                                <VBox HBox.hgrow="ALWAYS" spacing="2">
+                                    <Label text="Player Roster"
+                                           styleClass="qa-title"/>
+                                    <Label text="View and edit players"
+                                           styleClass="qa-sub"/>
+                                </VBox>
+                                <Label text="Updated" styleClass="badge-blue"/>
+                            </HBox>
+
+                            <HBox styleClass="quick-access-row"
+                                  alignment="CENTER_LEFT" spacing="12">
+                                <StackPane styleClass="qa-icon-box">
+                                    <Label text="" style="-fx-font-size:16px;"/>
+                                </StackPane>
+                                <VBox HBox.hgrow="ALWAYS" spacing="2">
+                                    <Label text="Shop Products"
+                                           styleClass="qa-title"/>
+                                    <Label text="Manage product catalog"
+                                           styleClass="qa-sub"/>
+                                </VBox>
+                                <Label fx:id="shopBadge" text="12 New"
+                                       styleClass="badge-blue"/>
+                            </HBox>
+
+                            <HBox styleClass="quick-access-row"
+                                  alignment="CENTER_LEFT" spacing="12">
+                                <StackPane styleClass="qa-icon-box">
+                                    <Label text="" style="-fx-font-size:16px;"/>
+                                </StackPane>
+                                <VBox HBox.hgrow="ALWAYS" spacing="2">
+                                    <Label text="Recent Orders"
+                                           styleClass="qa-title"/>
+                                    <Label text="Process pending orders"
+                                           styleClass="qa-sub"/>
+                                </VBox>
+                                <Label fx:id="ordersBadge" text="5 Pending"
+                                       styleClass="badge-red"/>
+                            </HBox>
+                        </VBox>
+                    </HBox>
+
+                    <Label text="All Management Modules"
+                           style="-fx-text-fill: white; -fx-font-size: 16px;
+                                  -fx-font-weight: bold;"/>
+
+                    <HBox spacing="12">
+                        <Button text="Users" styleClass="module-card"
+                                HBox.hgrow="ALWAYS" maxWidth="Infinity"
+                                prefHeight="90" onAction="#showUsers"/>
+                        <Button text="Players" styleClass="module-card"
+                                HBox.hgrow="ALWAYS" maxWidth="Infinity"
+                                prefHeight="90" onAction="#showPlayers"/>
+                        <Button text="Coaches" styleClass="module-card"
+                                HBox.hgrow="ALWAYS" maxWidth="Infinity"
+                                prefHeight="90" onAction="#showCoaches"/>
+                        <Button text="Orgs" styleClass="module-card"
+                                HBox.hgrow="ALWAYS" maxWidth="Infinity"
+                                prefHeight="90" onAction="#showOrganizations"/>
+                    </HBox>
+                    <HBox spacing="12">
+                        <Button text="Games" styleClass="module-card"
+                                HBox.hgrow="ALWAYS" maxWidth="Infinity"
+                                prefHeight="90" onAction="#showGames"/>
+                        <Button text="Teams" styleClass="module-card"
+                                HBox.hgrow="ALWAYS" maxWidth="Infinity"
+                                prefHeight="90" onAction="#showTeams"/>
+                        <Button text="Products" styleClass="module-card"
+                                HBox.hgrow="ALWAYS" maxWidth="Infinity"
+                                prefHeight="90" onAction="#showShop"/>
+                        <Button text="Orders" styleClass="module-card"
+                                HBox.hgrow="ALWAYS" maxWidth="Infinity"
+                                prefHeight="90" onAction="#showOrders"/>
+                    </HBox>
+
+                </VBox>
+            </ScrollPane>
+        </HBox>
+    </center>
+</BorderPane>

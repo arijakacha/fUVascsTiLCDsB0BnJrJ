@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem text="New Game" />
+                    <MenuItem text="Open" />
+                    <MenuItem text="Save" />
+                    <MenuItem text="Exit" />
+                </Menu>
+                <Menu text="Edit">
+                    <MenuItem text="Undo" />
+                    <MenuItem text="Redo" />
+                </Menu>
+                <Menu text="View">
+                    <MenuItem text="Dashboard" />
+                    <MenuItem text="Players" />
+                    <MenuItem text="Teams" />
+                    <MenuItem text="Games" />
+                </Menu>
+                <Menu text="Help">
+                    <MenuItem text="About" />
+                </Menu>
+            </MenuBar>
+            
+            <HBox style="-fx-background-color: #2c3e50; -fx-padding: 10px;" spacing="20">
+                <Label text="NexusPlay Gaming Platform" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" />
+                <Button text="Dashboard" style="-fx-background-color: #3498db; -fx-text-fill: white;" />
+                <Button text="Players" style="-fx-background-color: #2ecc71; -fx-text-fill: white;" />
+                <Button text="Teams" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" />
+                <Button text="Games" style="-fx-background-color: #f39c12; -fx-text-fill: white;" />
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Dashboard">
+                <VBox spacing="10" style="-fx-padding: 20px;">
+                    <Label text="Gaming Dashboard" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                    <HBox spacing="20">
+                        <VBox style="-fx-background-color: #ecf0f1; -fx-padding: 15px; -fx-border-radius: 5px;">
+                            <Label text="Total Players" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+                            <Label text="0" style="-fx-font-size: 24px; -fx-text-fill: #3498db;" />
+                        </VBox>
+                        <VBox style="-fx-background-color: #ecf0f1; -fx-padding: 15px; -fx-border-radius: 5px;">
+                            <Label text="Active Teams" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+                            <Label text="0" style="-fx-font-size: 24px; -fx-text-fill: #2ecc71;" />
+                        </VBox>
+                        <VBox style="-fx-background-color: #ecf0f1; -fx-padding: 15px; -fx-border-radius: 5px;">
+                            <Label text="Games Played" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+                            <Label text="0" style="-fx-font-size: 24px; -fx-text-fill: #e74c3c;" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+            </Tab>
+            
+            <Tab text="Players">
+                <VBox spacing="10" style="-fx-padding: 20px;">
+                    <HBox spacing="10">
+                        <Button text="Add Player" style="-fx-background-color: #2ecc71; -fx-text-fill: white;" />
+                        <Button text="Edit Player" style="-fx-background-color: #3498db; -fx-text-fill: white;" />
+                        <Button text="Delete Player" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" />
+                    </HBox>
+                    <TableView fx:id="playersTable" VBox.vgrow="ALWAYS" />
+                </VBox>
+            </Tab>
+            
+            <Tab text="Teams">
+                <VBox spacing="10" style="-fx-padding: 20px;">
+                    <HBox spacing="10">
+                        <Button text="Create Team" style="-fx-background-color: #2ecc71; -fx-text-fill: white;" />
+                        <Button text="Edit Team" style="-fx-background-color: #3498db; -fx-text-fill: white;" />
+                        <Button text="Delete Team" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" />
+                    </HBox>
+                    <TableView fx:id="teamsTable" VBox.vgrow="ALWAYS" />
+                </VBox>
+            </Tab>
+            
+            <Tab text="Games">
+                <VBox spacing="10" style="-fx-padding: 20px;">
+                    <HBox spacing="10">
+                        <Button text="Add Game" style="-fx-background-color: #2ecc71; -fx-text-fill: white;" />
+                        <Button text="Edit Game" style="-fx-background-color: #3498db; -fx-text-fill: white;" />
+                        <Button text="Delete Game" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" />
+                    </HBox>
+                    <TableView fx:id="gamesTable" VBox.vgrow="ALWAYS" />
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+    
+    <bottom>
+        <HBox style="-fx-background-color: #34495e; -fx-padding: 10px;" alignment="CENTER_RIGHT">
+            <Label text="Status: Connected to MySQL Database" style="-fx-text-fill: white;" />
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Text?>
+
+<StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+           fx:id="rootPane"
+           fx:controller="com.nexusplay.controller.CreateAccountController"
+           styleClass="app-root auth-root" maxWidth="Infinity" maxHeight="Infinity">
+
+    <Pane maxWidth="Infinity" maxHeight="Infinity" mouseTransparent="true" pickOnBounds="false">
+        <Circle radius="300" opacity="0.13" translateX="-280" translateY="-180">
+            <fill>
+                <RadialGradient centerX="0.5" centerY="0.5" radius="0.5" proportional="true">
+                    <stops>
+                        <Stop offset="0" color="#FF4D2E"/>
+                        <Stop offset="1" color="#FF4D2E00"/>
+                    </stops>
+                </RadialGradient>
+            </fill>
+            <effect>
+                <GaussianBlur radius="80.0"/>
+            </effect>
+        </Circle>
+        <Circle radius="240" opacity="0.09" translateX="300" translateY="280">
+            <fill>
+                <RadialGradient centerX="0.5" centerY="0.5" radius="0.5" proportional="true">
+                    <stops>
+                        <Stop offset="0" color="#8B0000"/>
+                        <Stop offset="1" color="#8B000000"/>
+                    </stops>
+                </RadialGradient>
+            </fill>
+            <effect>
+                <GaussianBlur radius="60.0"/>
+            </effect>
+        </Circle>
+    </Pane>
+
+    <AnchorPane>
+        <ScrollPane fx:id="scrollPane" fitToWidth="true" fitToHeight="false" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+                    pannable="true" styleClass="auth-scroll" maxWidth="Infinity" maxHeight="Infinity"
+                    AnchorPane.topAnchor="42" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0"
+                    AnchorPane.leftAnchor="0">
+            <StackPane fx:id="scrollContent" styleClass="scroll-content" maxWidth="Infinity" maxHeight="Infinity"
+                       style="-fx-background-color: transparent;" alignment="CENTER">
+                <VBox styleClass="auth-card" spacing="10" alignment="CENTER" maxWidth="520" minWidth="340"
+                      style="-fx-background-color: rgba(255,255,255,0.03); -fx-border-color: rgba(255,80,46,0.20); -fx-border-radius: 20px; -fx-background-radius: 20px;">
+                    <HBox alignment="CENTER" spacing="0">
+                        <Label text="NEXUS" styleClass="logo-label-nexus"/>
+                        <Label text="PLAY" styleClass="logo-label-play"/>
+                    </HBox>
+
+                    <Region styleClass="login-form-gap"/>
+
+                    <VBox alignment="CENTER" spacing="6">
+                        <Text text="JOIN THE COMMUNITY" styleClass="badge-label" textAlignment="CENTER"/>
+                        <Text text="Create your account" styleClass="title-page" textAlignment="CENTER"/>
+                    </VBox>
+
+                    <VBox spacing="6" maxWidth="Infinity">
+                        <Label text="I am a:" styleClass="field-label"/>
+                        <ComboBox fx:id="roleComboBox" styleClass="combo-box"/>
+                    </VBox>
+
+                    <VBox spacing="6" maxWidth="Infinity">
+                        <Label text="Full Name" styleClass="field-label"/>
+                        <TextField fx:id="fullNameField" promptText="Your full name" styleClass="text-field"/>
+                    </VBox>
+                    <VBox spacing="6" maxWidth="Infinity">
+                        <Label text="Email" styleClass="field-label"/>
+                        <TextField fx:id="emailField" promptText="you@example.com" styleClass="text-field"/>
+                    </VBox>
+                    <VBox spacing="6" maxWidth="Infinity">
+                        <Label text="Username" styleClass="field-label"/>
+                        <TextField fx:id="usernameField" promptText="Choose a username"
+                                   styleClass="text-field"/>
+                    </VBox>
+                    <VBox spacing="6" maxWidth="Infinity">
+                        <Label text="Password" styleClass="field-label"/>
+                        <PasswordField fx:id="passwordField" promptText="Create a password"
+                                       styleClass="password-field"/>
+                    </VBox>
+                    <VBox fx:id="confirmPasswordBlock" spacing="6" maxWidth="Infinity">
+                        <Label text="Confirm Password" styleClass="field-label"/>
+                        <PasswordField fx:id="confirmPasswordField" promptText="Confirm your password"
+                                       styleClass="password-field"/>
+                    </VBox>
+
+                    <Label fx:id="errorLabel" styleClass="error-label" visible="false" managed="false"/>
+
+                    <Button fx:id="createAccountButton" text="CREATE ACCOUNT" onAction="#handleCreateAccount"
+                            styleClass="btn-primary" maxWidth="Infinity" prefHeight="52"/>
+
+                    <HBox styleClass="divider-or-row" maxWidth="Infinity">
+                        <Region styleClass="divider-or-line" HBox.hgrow="ALWAYS"/>
+                        <Label text="OR" styleClass="divider-or-label"/>
+                        <Region styleClass="divider-or-line" HBox.hgrow="ALWAYS"/>
+                    </HBox>
+
+                    <Button onAction="#handleGoogle" styleClass="btn-google" maxWidth="Infinity"
+                            prefHeight="52">
+                        <graphic>
+                            <HBox alignment="CENTER" spacing="10">
+                                <Label text="G" style="-fx-text-fill: #4285F4; -fx-font-size: 18px; -fx-font-weight: bold;"/>
+                                <Label text="Continue with Google" style="-fx-text-fill: white; -fx-font-size: 14px;"/>
+                            </HBox>
+                        </graphic>
+                    </Button>
+
+                    <Region styleClass="auth-spacer-links"/>
+
+                    <HBox alignment="CENTER" spacing="4">
+                        <Text text="Already have an account?" styleClass="subtitle-muted"/>
+                        <Hyperlink fx:id="signInLink" text="Sign in" onAction="#handleSignIn"
+                                   styleClass="hyperlink link-auth"/>
+                    </HBox>
+
+                    <VBox alignment="CENTER" spacing="4">
+                        <Text text="© 2024 NexusPlay" styleClass="footer-muted" textAlignment="CENTER"/>
+                        <Text text="Connect • Compete • Conquer" styleClass="footer-muted" textAlignment="CENTER"/>
+                    </VBox>
+                </VBox>
+            </StackPane>
+        </ScrollPane>
+    </AnchorPane>
+
+    <HBox fx:id="titleBar" styleClass="title-bar" alignment="CENTER_RIGHT" maxWidth="Infinity"
+          onMousePressed="#handleTitleBarPressed" onMouseDragged="#handleTitleBarDragged"
+          StackPane.alignment="TOP_CENTER">
+        <HBox alignment="CENTER_LEFT" spacing="8" HBox.hgrow="ALWAYS"
+              style="-fx-padding: 0 0 0 16px;">
+            <Label text="NEXUS" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+            <Label text="PLAY" style="-fx-text-fill: #FF4D2E; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+        </HBox>
+        <HBox spacing="8" style="-fx-padding: 10px 12px;">
+            <Button fx:id="btnFullscreen" styleClass="win-btn win-btn-fullscreen"
+                    onAction="#toggleFullscreen" text="⛶"/>
+            <Button fx:id="btnMinimize" styleClass="win-btn win-btn-minimize"
+                    onAction="#minimizeWindow" text="−"/>
+            <Button fx:id="btnClose" styleClass="win-btn win-btn-close"
+                    onAction="#closeWindow" text="✕"/>
+        </HBox>
+    </HBox>
+</StackPane>
