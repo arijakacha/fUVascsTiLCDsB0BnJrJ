@@ -4,7 +4,17 @@
 
 The application is configured to connect to your MySQL `nexusplay` database with these settings:
 
-```properties
+```properties       
+
+
+
+
+
+
+
+
+
+
 # Connection Details
 Host: 127.0.0.1
 Port: 3307
