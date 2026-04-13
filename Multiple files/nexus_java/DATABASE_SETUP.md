@@ -22,10 +22,16 @@ Database: nexusplay
 Username: root
 Password: (empty)
 ```
-
 ## 🔧 Troubleshooting Steps
 
-### 1. Verify MySQL is Running
+## 1. Verify MySQL is Running
+
+
+
+
+
+
+
 
 Check if MySQL is running on port 3307:
 
