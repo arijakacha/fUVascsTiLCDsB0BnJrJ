@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public final class DatabaseConnection {
 
     private static final String DEFAULT_URL =
-            "jdbc:mysql://127.0.0.1:3307/nexusplayyy?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+            "jdbc:mysql://127.0.0.1:3306/nexusplayyy?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String DEFAULT_USER = "root";
     private static final String DEFAULT_PASSWORD = "";
 
@@ -44,6 +44,10 @@ public final class DatabaseConnection {
         );
         return value;
     }
+
+
+
+
 
     public static String getLastError() {
         return lastError;
