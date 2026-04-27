@@ -2,7 +2,37 @@
 
 ## 🎯 Current Configuration
 
-The application is configured to connect to your MySQL `nexusplay` database with these settings:
+The application is configured to                                                                                                                                                                                                                                                         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ connect to your MySQL `nexusplay` database with these settings:
 
 ```properties       
 
