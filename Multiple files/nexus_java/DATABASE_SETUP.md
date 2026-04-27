@@ -23,6 +23,25 @@ Username: root
 Password: (empty)
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                        
 ## 🔧 Troubleshooting Steps
 
 ### 1. Verify MySQL is Running
