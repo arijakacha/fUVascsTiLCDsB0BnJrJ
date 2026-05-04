@@ -6,6 +6,16 @@ import jakarta.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
+
+
+
+
+
+
+
+
+
 @Entity
 @Table(name = "forum_post")
 public class ForumPost {
