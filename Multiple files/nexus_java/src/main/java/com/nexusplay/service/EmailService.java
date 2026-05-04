@@ -12,6 +12,11 @@ public class EmailService {
     private static final String SMTP_USERNAME = "akaichiiyed10@gmail.com";
     private static final String SMTP_PASSWORD = "ioxa vpet nwhy bqyg";
     
+
+
+
+
+    
     /**
      * Send password reset email with verification code
      */
