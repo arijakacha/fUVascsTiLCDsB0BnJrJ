@@ -1,0 +1,284 @@
+/* Arabic Language Support CSS for NexusPlay Gaming Platform */
+
+/* Root Arabic styling */
+.root {
+    -fx-font-family: "Arial", "Tahoma", sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* Arabic text direction and alignment */
+.arabic-text {
+    -fx-text-alignment: right;
+    -fx-alignment: center-right;
+    -fx-node-orientation: right-to-left;
+    -fx-font-family: "Arial", "Tahoma", "DejaVu Sans", sans-serif;
+}
+
+/* RTL Container */
+.rtl-container {
+    -fx-node-orientation: right-to-left;
+    -fx-text-alignment: right;
+}
+
+/* Arabic Labels */
+.arabic-label {
+    -fx-text-alignment: right;
+    -fx-alignment: center-right;
+    -fx-node-orientation: right-to-left;
+    -fx-font-family: "Arial", "Tahoma", sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* Arabic Buttons */
+.arabic-button {
+    -fx-node-orientation: right-to-left;
+    -fx-font-family: "Arial", "Tahoma", sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* Arabic Text Fields */
+.arabic-text-field {
+    -fx-node-orientation: right-to-left;
+    -fx-text-alignment: right;
+    -fx-font-family: "Arial", "Tahoma", sans-serif;
+}
+
+/* Arabic Text Areas */
+.arabic-text-area {
+    -fx-node-orientation: right-to-left;
+    -fx-text-alignment: right;
+    -fx-font-family: "Arial", "Tahoma", sans-serif;
+}
+
+/* Arabic Table Headers */
+.table-view .column-header .label {
+    -fx-node-orientation: right-to-left;
+    -fx-text-alignment: center;
+    -fx-font-family: "Arial", "Tahoma", sans-serif;
+}
+
+/* Arabic Menu Items */
+.menu-item .label {
+    -fx-node-orientation: right-to-left;
+    -fx-text-alignment: right;
+    -fx-font-family: "Arial", "Tahoma", sans-serif;
+}
+
+/* Arabic Context Menu */
+.context-menu {
+    -fx-node-orientation: right-to-left;
+}
+
+/* Arabic Tooltips */
+.tooltip {
+    -fx-node-orientation: right-to-left;
+    -fx-text-alignment: center;
+    -fx-font-family: "Arial", "Tahoma", sans-serif;
+}
+
+/* Arabic Dialogs */
+.dialog-pane {
+    -fx-node-orientation: right-to-left;
+}
+
+.dialog-pane .header-panel {
+    -fx-node-orientation: right-to-left;
+}
+
+.dialog-pane .content {
+    -fx-node-orientation: right-to-left;
+}
+
+/* Arabic Alert Boxes */
+.alert {
+    -fx-node-orientation: right-to-left;
+}
+
+/* Arabic TabPane */
+.tab-pane .tab {
+    -fx-node-orientation: right-to-left;
+}
+
+.tab-pane .tab-label {
+    -fx-node-orientation: right-to-left;
+}
+
+/* Arabic Accordion */
+.titled-pane {
+    -fx-node-orientation: right-to-left;
+}
+
+.titled-pane > .title {
+    -fx-node-orientation: right-to-left;
+}
+
+/* Arabic ListView and TreeView */
+.list-view {
+    -fx-node-orientation: right-to-left;
+}
+
+.tree-view {
+    -fx-node-orientation: right-to-left;
+}
+
+/* Arabic ComboBox */
+.combo-box {
+    -fx-node-orientation: right-to-left;
+}
+
+.combo-box-popup .list-view {
+    -fx-node-orientation: right-to-left;
+}
+
+/* Arabic CheckBox and RadioButton */
+.check-box {
+    -fx-node-orientation: right-to-left;
+}
+
+.radio-button {
+    -fx-node-orientation: right-to-left;
+}
+
+/* Arabic Progress Bar and Progress Indicator */
+.progress-bar {
+    -fx-node-orientation: right-to-left;
+}
+
+.progress-indicator {
+    -fx-node-orientation: right-to-left;
+}
+
+/* Arabic Slider */
+.slider {
+    -fx-node-orientation: right-to-left;
+}
+
+/* Arabic ScrollPane */
+.scroll-pane {
+    -fx-node-orientation: right-to-left;
+}
+
+/* Arabic SplitPane */
+.split-pane {
+    -fx-node-orientation: right-to-left;
+}
+
+/* Arabic DatePicker */
+.date-picker {
+    -fx-node-orientation: right-to-left;
+}
+
+.date-picker-popup {
+    -fx-node-orientation: right-to-left;
+}
+
+/* Arabic Color Picker */
+.color-picker {
+    -fx-node-orientation: right-to-left;
+}
+
+/* Arabic Pagination */
+.pagination {
+    -fx-node-orientation: right-to-left;
+}
+
+/* Arabic Chart Labels */
+.chart {
+    -fx-node-orientation: right-to-left;
+}
+
+.chart-title {
+    -fx-node-orientation: right-to-left;
+}
+
+.chart-legend {
+    -fx-node-orientation: right-to-left;
+}
+
+.axis-label {
+    -fx-node-orientation: right-to-left;
+}
+
+/* Arabic Form Validation */
+.error-label {
+    -fx-text-fill: #ff4444;
+    -fx-font-family: "Arial", "Tahoma", sans-serif;
+    -fx-node-orientation: right-to-left;
+    -fx-text-alignment: right;
+}
+
+.success-label {
+    -fx-text-fill: #44ff44;
+    -fx-font-family: "Arial", "Tahoma", sans-serif;
+    -fx-node-orientation: right-to-left;
+    -fx-text-alignment: right;
+}
+
+/* Arabic Welcome Screen */
+.welcome-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+    -fx-font-family: "Arial", "Tahoma", sans-serif;
+}
+
+.welcome-subtitle {
+    -fx-font-size: 16px;
+    -fx-text-alignment: center;
+    -fx-font-family: "Arial", "Tahoma", sans-serif;
+}
+
+/* Arabic Login Form */
+.login-form {
+    -fx-node-orientation: right-to-left;
+    -fx-alignment: center;
+    -fx-spacing: 15px;
+}
+
+.login-field {
+    -fx-node-orientation: right-to-left;
+    -fx-text-alignment: right;
+    -fx-font-family: "Arial", "Tahoma", sans-serif;
+}
+
+/* Arabic Dashboard */
+.dashboard-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+    -fx-font-family: "Arial", "Tahoma", sans-serif;
+}
+
+.dashboard-card {
+    -fx-node-orientation: right-to-left;
+    -fx-text-alignment: right;
+}
+
+/* Responsive Arabic text */
+@media (max-width: 768px) {
+    .arabic-text {
+        -fx-font-size: 12px;
+    }
+    
+    .arabic-label {
+        -fx-font-size: 12px;
+    }
+    
+    .arabic-button {
+        -fx-font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .arabic-text {
+        -fx-font-size: 11px;
+    }
+    
+    .arabic-label {
+        -fx-font-size: 11px;
+    }
+    
+    .arabic-button {
+        -fx-font-size: 11px;
+    }
+}
