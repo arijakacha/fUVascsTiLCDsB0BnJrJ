@@ -258,6 +258,7 @@ public class FaceRecognitionService {
             g.release();
         } catch (Exception ignored) {
         }
+        
         grabber = null;
     }
 }
