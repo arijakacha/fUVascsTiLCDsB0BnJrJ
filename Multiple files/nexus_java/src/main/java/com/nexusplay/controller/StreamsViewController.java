@@ -395,6 +395,13 @@ public class StreamsViewController extends BaseController {
         }
     }
 
+
+
+
+
+
+    
+
     @FXML
     private void showForum() {
         try {
@@ -406,6 +413,21 @@ public class StreamsViewController extends BaseController {
             e.printStackTrace();
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @FXML
     private void showContent() {
