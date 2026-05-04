@@ -17,6 +17,11 @@ import javafx.stage.Stage;
 
 public class ShopViewController extends BaseController {
 
+
+
+
+
+
     @FXML private Label userNameLabel;
     @FXML private Label userTypeLabel;
     @FXML private Label avatarLabel;

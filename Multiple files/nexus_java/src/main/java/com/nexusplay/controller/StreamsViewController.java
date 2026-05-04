@@ -16,6 +16,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+
+
+
 public class StreamsViewController extends BaseController {
 
     @FXML private Label userNameLabel;

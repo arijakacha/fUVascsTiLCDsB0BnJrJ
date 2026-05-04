@@ -15,6 +15,9 @@ import javafx.stage.Stage;
 
 public class PlayersViewController extends BaseController {
 
+
+
+
     @FXML private Label userNameLabel;
     @FXML private Label userTypeLabel;
     @FXML private Label avatarLabel;

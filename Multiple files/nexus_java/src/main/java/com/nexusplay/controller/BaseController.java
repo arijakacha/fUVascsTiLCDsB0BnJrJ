@@ -16,6 +16,9 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
+ * 
+ * 
+ * 
  * Shared undecorated-window controls: drag title bar, maximize/fill screen, minimize, close.
  */
 public abstract class BaseController {

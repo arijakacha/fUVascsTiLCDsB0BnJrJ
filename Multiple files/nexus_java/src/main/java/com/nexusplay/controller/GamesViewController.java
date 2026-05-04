@@ -16,6 +16,10 @@ import java.util.List;
 
 public class GamesViewController extends BaseController {
 
+
+
+
+
     @FXML private Label userNameLabel;
     @FXML private Label userTypeLabel;
     @FXML private Label avatarLabel;

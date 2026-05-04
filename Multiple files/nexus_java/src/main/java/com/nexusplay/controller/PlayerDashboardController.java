@@ -19,6 +19,9 @@ import com.nexusplay.util.SessionManager;
 import java.util.List;
 
 public class PlayerDashboardController implements DashboardController {
+
+
+   
     
     private User currentUser;
     

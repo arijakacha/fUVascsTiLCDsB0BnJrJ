@@ -24,6 +24,8 @@ import java.util.List;
 
 public class NotificationsViewController extends BaseController {
 
+
+
     @FXML private TableView<Notification> notificationsTable;
     @FXML private TableColumn<Notification, Number> idColumn;
     @FXML private TableColumn<Notification, String> typeColumn;

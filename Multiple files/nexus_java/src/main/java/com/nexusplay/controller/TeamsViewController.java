@@ -12,6 +12,9 @@ import javafx.stage.Stage;
 
 public class TeamsViewController extends BaseController {
 
+
+
+
     @FXML private Label userNameLabel;
     @FXML private Label userTypeLabel;
     @FXML private Label avatarLabel;

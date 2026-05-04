@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 
 public class HomeController extends BaseController {
 
+
+
     @FXML private Label userNameLabel;
     @FXML private Label userTypeLabel;
     @FXML private Label avatarLabel;
