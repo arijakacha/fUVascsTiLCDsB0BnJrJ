@@ -4,6 +4,30 @@
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.*?>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.nexusplay.controller.crud.CoachesCRUDController"
             style="-fx-background-color: #1a1a2e;">
